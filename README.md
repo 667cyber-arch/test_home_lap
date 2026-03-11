@@ -3,8 +3,6 @@
 
 ## Table of Contents
 
-## 📑 Table of Contents
-
 * [Overview & Mission Statement](#overview--mission-statement)
 * [Lab Objectives](#lab-objectives)
 * [Lab Architecture](#lab-architecture)
@@ -13,7 +11,7 @@
   * [3️⃣ Victim Node (Target)](#3️⃣-victim-node--toshiba-laptop)
 * [Network Topology](#network-topology)
   * [Logical Traffic Flow](#logical-traffic-flow)
-* [Hardware Integration & Bridging](#hardware-integration--transparent-bridging)
+* [Hardware Integration & Bridging](#Layer-2-Network-Bridge-Configuratio)
 * [Execution & Exploitation](#execution--exploitation)
   * [Phase 1: Reconnaissance (Nmap)](#phase-1--credential-discovery)
   * [Phase 2: Credential Exploitation (Python)](#phase-2--credential-exploitation)
@@ -135,8 +133,8 @@ This lab consists of three primary systems connected in a monitored inline confi
 ```
 
 <p align="center">
-<a href="Network_Diagram\Network_diagram.png">
-<img src="Network_Diagram\Network_diagram.png" width="700">
+<a href="Home_Lab/Network_Diagram\Network_diagram.png">
+<img src="Home_Lab/Network_Diagram\Network_diagram.png" width="700">
 </a>
 </p>
 
@@ -196,8 +194,8 @@ Virtualization is used to isolate penetration testing tools from the host OS.
 - **Network Mode:** Bridged Adapter (VM receives its own IP address)
 
 <p align="center">
-<a href="Screenshots\Kali_Network.png">
-<img src="Screenshots\Kali_Network.png" width="700">
+<a href="Home_Lab\Screenshots\Kali_Network.png">
+<img src="Home_Lab\Screenshots\Kali_Network.png" width="700">
 </a>
 </p>
 
@@ -218,8 +216,8 @@ Virtualization is used to isolate penetration testing tools from the host OS.
   - Python script using the **Impacket** library to automate SMB authentication attempts.
 
 <p align="center">
-<a href="Screenshots\Kali_tool.png">
-<img src="Screenshots\Kali_tool.png" width="700">
+<a href="Home_Lab\Screenshots\Kali_tool.png">
+<img src="Home_Lab\Screenshots\Kali_tool.png" width="700">
 </a>
 </p>
 
@@ -257,8 +255,8 @@ By implementing a **physical Ethernet bridge**, it acts as a **transparent inlin
   - HP ZBook forwards traffic between the attacker and victim while allowing security tools to observe all packets in transit.
 
 <p align="center">
-<a href="Screenshots\Creat_bridge.png">
-<img src="Screenshots\Creat_bridge.png" width="700">
+<a href="Home_Lab\Screenshots\Creat_bridge.png">
+<img src="Home_Lab\Screenshots\Creat_bridge.png" width="700">
 </a>
 </p>
 
@@ -273,8 +271,8 @@ By implementing a **physical Ethernet bridge**, it acts as a **transparent inlin
 - Documents attacker MAC and IP addresses  
 
 <p align="center">
-<a href="Screenshots\Wireshark.png">
-<img src="Screenshots\Wireshark.png" width="700">
+<a href="Home_Lab\Screenshots\Wireshark.png">
+<img src="Home_Lab\Screenshots\Wireshark.png" width="700">
 </a>
 </p>
 
@@ -286,8 +284,8 @@ By implementing a **physical Ethernet bridge**, it acts as a **transparent inlin
 
 
 <p align="center">
-<a href="Screenshots\ids_monitor_SC.png">
-<img src="Screenshots\ids_monitor_SC.png" width="700">
+<a href="Home_Lab\Screenshots\ids_monitor_SC.png">
+<img src="Home_Lab\Screenshots\ids_monitor_SC.png" width="700">
 </a>
 </p>
 
@@ -301,8 +299,8 @@ By implementing a **physical Ethernet bridge**, it acts as a **transparent inlin
 **Goal:** Ensure the monitoring node remains secure during the simulation  
 
 <p align="center">
-<a href="Screenshots\Sysmon_logs.png">
-<img src="Screenshots\Sysmon_logs.png" width="700">
+<a href="Home_Lab\Screenshots\Sysmon_logs.png">
+<img src="Home_Lab\Screenshots\Sysmon_logs.png" width="700">
 </a>
 </p>
 ---
@@ -321,8 +319,8 @@ The laptop is physically connected to the HP ZBook (Detector) via Ethernet for f
 - **Connectivity:** Ethernet (Bridged through HP ZBook)
 
 <p align="center">
-<a href="Screenshots\CMD_Working_eth.png">
-<img src="Screenshots\CMD_Working_eth.png" width="700">
+<a href="Home_Lab\Screenshots\CMD_Working_eth.png">
+<img src="Home_Lab\Screenshots\CMD_Working_eth.png" width="700">
 </a>
 </p>
 
@@ -345,8 +343,8 @@ The laptop is physically connected to the HP ZBook (Detector) via Ethernet for f
 - **Windows Event Logs:** Captures authentication events (success/failure).
 
 <p align="center">
-<a href="Screenshots\Sysmon_logs_Victim.png">
-<img src="Screenshots\Sysmon_logs_Victim.png" width="700">
+<a href="Home_Lab\Screenshots\Sysmon_logs_Victim.png">
+<img src="Home_Lab\Screenshots\Sysmon_logs_Victim.png" width="700">
 </a>
 </p>
 
@@ -361,8 +359,8 @@ The laptop is physically connected to the HP ZBook (Detector) via Ethernet for f
 netsh advfirewall set allprofiles state off
 ```
 <p align="center">
-<a href="Screenshots\OFF_firewall.png">
-<img src="Screenshots\OFF_firewall.png" width="700">
+<a href="Home_Lab\Screenshots\OFF_firewall.png">
+<img src="Home_Lab\Screenshots\OFF_firewall.png" width="700">
 </a>
 </p>
 ---
@@ -393,14 +391,14 @@ The **Wi-Fi interface** and the **physical Ethernet interface** on the **HP ZBoo
 Windows generated a new virtual adapter named **Network Bridge**, successfully linking the wireless network to the physical Ethernet cable.
 
 <p align="center">
-<a href="Screenshots\Adapter_selected.png">
-<img src="Screenshots\Adapter_selected.png" width="700">
+<a href="Home_Lab\Screenshots\Adapter_selected.png">
+<img src="Home_Lab\Screenshots\Adapter_selected.png" width="700">
 </a>
 </p>
  
 <p align="center">
-<a href="Screenshots\Creat_bridge.png">
-<img src="Screenshots\Creat_bridge.png" width="700">
+<a href="Home_Lab\Screenshots\Creat_bridge.png">
+<img src="Home_Lab\Screenshots\Creat_bridge.png" width="700">
 </a>
 </p>
 ---
@@ -415,8 +413,8 @@ Because the bridge operates **transparently at Layer 2**, the **Victim Node (Tos
 The **local router** successfully passed an IP address through the **HP ZBook bridge** and assigned it directly to the **Toshiba**.
 
 <p align="center">
-<a href="Screenshots\CMD_Working_eth.png">
-<img src="Screenshots\CMD_Working_eth.png" width="700">
+<a href="Home_Lab\Screenshots\CMD_Working_eth.png">
+<img src="Home_Lab\Screenshots\CMD_Working_eth.png" width="700">
 </a>
 </p>
 
@@ -432,8 +430,8 @@ To confirm that the bridge allows **unobstructed traffic flow**, a direct **ICMP
 Successful **ICMP replies** confirmed that the **Attacker** and **Victim** could communicate directly, with the **HP ZBook sitting invisibly in the middle ready to intercept and monitor traffic**.
 
 <p align="center">
-<a href="Screenshots\Ping_HP.png">
-<img src="Screenshots\Ping_HP.png" width="700">
+<a href="Home_Lab\Screenshots\Ping_HP.png">
+<img src="Home_Lab\Screenshots\Ping_HP.png" width="700">
 </a>
 </p>
 
@@ -469,8 +467,8 @@ Command:
 nmap -p -T4 -Pn 192.168.1.xx
 ```
 <p align="center">
-<a href="Screenshots\Open_doors.png">
-<img src="Screenshots\Open_doors.png" width="700">
+<a href="Home_Lab\Screenshots\Open_doors.png">
+<img src="Home_Lab\Screenshots\Open_doors.png" width="700">
 </a>
 </p>
 
@@ -484,8 +482,8 @@ nmap -p 445 192.168.1.xx
 ```
 
 <p align="center">
-<a href="Screenshots\Confirming_door.png">
-<img src="Screenshots\Confirming_door.png" width="700">
+<a href="Home_Lab\Screenshots\Confirming_door.png">
+<img src="Home_Lab\Screenshots\Confirming_door.png" width="700">
 </a>
 </p>
 
@@ -510,13 +508,12 @@ nano smb_brute.py
 
 ```python
 import sys
+from impacket.smbconnection import SMBConnection
 ```
 
-from impacket.smbconnection import SMBConnection
-
 <p align="center">
-<a href="Screenshots\brute_force_script.png">
-<img src="Screenshots\brute_force_script.png" width="700">
+<a href="Home_Lab\Screenshots\brute_force_script.png">
+<img src="Home_Lab\Screenshots\brute_force_script.png" width="700">
 </a>
 </p>
 
@@ -573,7 +570,7 @@ Execute the attack simulation:
 python3 smb_brute.py
 ```
 
-[View Python Script](Scripts/smb_brute.py)
+[View Python Script](Home_Lab\Scripts/smb_brute.py)
 
 ---
 
@@ -583,8 +580,8 @@ This step captures the moment when the system compromise was successful.
 The custom Python script (`smb_brute.py`) completed the automated dictionary attack and successfully authenticated with the target system.
 
 <p align="center">
-<a href="Screenshots\Found_password.png">
-<img src="Screenshots\Found_password.png" width="700">
+<a href="Home_Lab\Screenshots\Found_password.png">
+<img src="Home_Lab\Screenshots\Found_password.png" width="700">
 </a>
 </p>
 ---
@@ -635,8 +632,8 @@ smbclient //192.168.1.xx/C$ -U Admin
   - The password discovered by the script (`admin123`) was used to complete the login.
 
 <p align="center">
-<a href="Screenshots\Login_process.png">
-<img src="Screenshots\Login_process.png" width="700">
+<a href="Home_Lab\Screenshots\Login_process.png">
+<img src="Home_Lab\Screenshots\Login_process.png" width="700">
 </a>
 </p>
 
@@ -669,8 +666,8 @@ ls
 - List files stored inside the target folder.
 
 <p align="center">
-<a href="Screenshots\Files_victim.png">
-<img src="Screenshots\Files_victim.png" width="700">
+<a href="Home_Lab\Screenshots\Files_victim.png">
+<img src="Home_Lab\Screenshots\Files_victim.png" width="700">
 </a>
 </p>
 
@@ -686,14 +683,14 @@ After identifying the target files, they were transferred from the Toshiba victi
 get RouterIP.png
 ```
 <p align="center">
-<a href="Screenshots\Get_command.png">
-<img src="Screenshots\Get_command.png" width="700">
+<a href="Home_Lab\Screenshots\Get_command.png">
+<img src="Home_Lab\Screenshots\Get_command.png" width="700">
 </a>
 </p>
 
 <p align="center">
-<a href="Screenshots\File_on_attacker_desktop.png">
-<img src="Screenshots\File_on_attacker_desktop.png" width="700">
+<a href="Home_Lab\Screenshots\File_on_attacker_desktop.png">
+<img src="Home_Lab\Screenshots\File_on_attacker_desktop.png" width="700">
 </a>
 </p>
 
@@ -702,14 +699,14 @@ get RouterIP.png
 mget *.png
 ```
 <p align="center">
-<a href="Screenshots\mget_command.png">
-<img src="Screenshots\mget_command.png" width="700">
+<a href="Home_Lab\Screenshots\mget_command.png">
+<img src="Home_Lab\Screenshots\mget_command.png" width="700">
 </a>
 </p>
 
 <p align="center">
-<a href="Screenshots\Bulk_transfer.png">
-<img src="Screenshots\Bulk_transfer.png" width="700">
+<a href="Home_Lab\Screenshots\Bulk_transfer.png">
+<img src="Home_Lab\Screenshots\Bulk_transfer.png" width="700">
 </a>
 </p>
 
@@ -730,8 +727,8 @@ To demonstrate full compromise, a test file was uploaded from the attacker machi
 put hello.txt
 ```
 <p align="center">
-<a href="Screenshots\Put_command.png">
-<img src="Screenshots\Put_command.png" width="700">
+<a href="Home_Lab\Screenshots\Put_command.png">
+<img src="Home_Lab\Screenshots\Put_command.png" width="700">
 </a>
 </p>
 
@@ -745,8 +742,8 @@ put hello.txt
 
 The successful upload of `hello.txt` confirms persistent write access to the compromised system.
 <p align="center">
-<a href="Screenshots\Access_confirmed.png">
-<img src="Screenshots\Access_confirmed.png" width="700">
+<a href="Home_Lab\Screenshots\Access_confirmed.png">
+<img src="Home_Lab\Screenshots\Access_confirmed.png" width="700">
 </a>
 </p>
 
@@ -762,7 +759,7 @@ The goal of this phase was to successfully implement a Layer 2 IDS (Intrusion De
 
 ---
 
-## Netowrk topology;
+## Netowrk Topology
 
 [ Attacker: Dell ] <--- Wi-Fi ---> [ Detector: HP ZBook (Bridge) ] <--- Ethernet ---> [ Victim: Toshiba ]
        |                                     |                                         |
@@ -825,13 +822,13 @@ sniff(prn=detect_attack, store=0)
 - Continuously monitors **live network traffic** passing through the bridge.
 - `store=0` prevents packets from being stored in memory during high-traffic events.
 
-[View Python Script](Script/ids_monitor.py)
+[View Python Script](Scripts/ids_monitor.py)
 
 ---
 
 <p align="center">
-<a href="Screenshots\ids_monitor_SC.png">
-<img src="Screenshots\ids_monitor_SC.png" width="700">
+<a href="Home_Lab\Screenshots\ids_monitor_SC.png">
+<img src="Home_Lab\Screenshots\ids_monitor_SC.png" width="700">
 </a>
 </p>
 
@@ -848,8 +845,8 @@ Because the **HP ZBook** was configured as a **Layer 2 Network Bridge**, it sat 
 - When suspicious traffic targeting the victim was detected, the script **generated a real-time security alert**.
 
 <p align="center">
-<a href="Screenshots\Nmap_detected.png">
-<img src="Screenshots\Nmap_detected.png" width="700">
+<a href="Home_Lab\Screenshots\Nmap_detected.png">
+<img src="Home_Lab\Screenshots\Nmap_detected.png" width="700">
 </a>
 </p>
 
