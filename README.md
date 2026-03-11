@@ -3,31 +3,25 @@
 
 ## Table of Contents
 
-- [Overview & Mission Statement](## Overview & Mission Statement)
-- [Lab Objectives](## Lab Objectives)
-- [Lab Architecture](## Lab Architecture)
+## 📑 Table of Contents
 
--[1️⃣ Attacker Node (Red Team)](## 1️⃣ Attacker Node — Dell Laptop (Red Team))
--[2️⃣ Detector Node (Blue Team)](## 2️⃣ Detector Node — HP ZBook (Blue Team Workstation))
--[3️⃣ Victim Node (Target)](## 3️⃣ Victim Node — Toshiba Laptop)
+* [Overview & Mission Statement](#overview--mission-statement)
+* [Lab Objectives](#lab-objectives)
+* [Lab Architecture](#lab-architecture)
+  * [1️⃣ Attacker Node (Red Team)](#1️⃣-attacker-node--dell-laptop-red-team)
+  * [2️⃣ Detector Node (Blue Team)](#2️⃣-detector-node--hp-zbook-blue-team-workstation)
+  * [3️⃣ Victim Node (Target)](#3️⃣-victim-node--toshiba-laptop)
+* [Network Topology](#network-topology)
+  * [Logical Traffic Flow](#logical-traffic-flow)
+* [Hardware Integration & Bridging](#hardware-integration--transparent-bridging)
+* [Execution & Exploitation](#execution--exploitation)
+  * [Phase 1: Reconnaissance (Nmap)](#phase-1--credential-discovery)
+  * [Phase 2: Credential Exploitation (Python)](#phase-2--credential-exploitation)
+  * [Phase 3: Post-Exploitation & Exfiltration](#phase-3--postexploitation--data-exfiltration)
+* [Detection & Monitoring (Python IDS)](#python-ids-script-documentation)
+* [Project Conclusion](#project-conclusion)
+* [Disclaimer](#️-disclaimer)
 
-- [Network Topology](# Network Topology)
-- [Logical Traffic Flow](#logical-traffic-flow)
-
-- [Hardware Integration & Bridging](#hardware-integration--transparent-bridging)
-- [Layer 2 Configuration Steps](#layer-2-network-bridge-configuration)
-
-- [Execution & Exploitation](#execution--exploitation)
-
-- [Phase 1: Reconnaissance (Nmap)](#phase-1--credential-discovery)
-- [Phase 2: Credential Exploitation (Python)](#phase-2--credential-exploitation)
-- [Phase 3: Post-Exploitation & Exfiltration](#phase-3--postexploitation--data-exfiltration)
-
-- [Detection & Monitoring (Python IDS)](#python-ids-script-documentation)
-- [Script Breakdown & Detection Logic](#script-components)
-
-- [Project Conclusion](#project-conclusion)
-- [Disclaimer](#️-disclaimer)
 ---
 
 ## Overview & Mission Statement
@@ -351,7 +345,7 @@ The laptop is physically connected to the HP ZBook (Detector) via Ethernet for f
 - **Windows Event Logs:** Captures authentication events (success/failure).
 
 <p align="center">
-<a href="Screenshots\Sysmon_logs_Victim.png.png">
+<a href="Screenshots\Sysmon_logs_Victim.png">
 <img src="Screenshots\Sysmon_logs_Victim.png" width="700">
 </a>
 </p>
@@ -367,7 +361,7 @@ The laptop is physically connected to the HP ZBook (Detector) via Ethernet for f
 netsh advfirewall set allprofiles state off
 ```
 <p align="center">
-<a href="Screenshots\OFF_firewall.png.png">
+<a href="Screenshots\OFF_firewall.png">
 <img src="Screenshots\OFF_firewall.png" width="700">
 </a>
 </p>
@@ -438,8 +432,8 @@ To confirm that the bridge allows **unobstructed traffic flow**, a direct **ICMP
 Successful **ICMP replies** confirmed that the **Attacker** and **Victim** could communicate directly, with the **HP ZBook sitting invisibly in the middle ready to intercept and monitor traffic**.
 
 <p align="center">
-<a href="Screenshots\Ping_HP.png.png">
-<img src="Screenshots\Ping_HP.png.png" width="700">
+<a href="Screenshots\Ping_HP.png">
+<img src="Screenshots\Ping_HP.png" width="700">
 </a>
 </p>
 
@@ -764,7 +758,7 @@ The successful upload of `hello.txt` confirms persistent write access to the com
 
 ---
 
-the goal of this phase was to successfully implement a Layer 2 IDS (Intrusion Detection System) that remains invisible to both the attacker and the victim. By leveraging a hardware bridge configuration on a Windows-based detector (HP ZBook), I successfully intercepted and analyzed malicious traffic without altering the network’s logical topology.
+The goal of this phase was to successfully implement a Layer 2 IDS (Intrusion Detection System) that remains invisible to both the attacker and the victim. By leveraging a hardware bridge configuration on a Windows-based detector (HP ZBook), I successfully intercepted and analyzed malicious traffic without altering the network’s logical topology.
 
 ---
 
